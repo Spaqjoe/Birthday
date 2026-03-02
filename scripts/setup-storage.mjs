@@ -28,7 +28,7 @@ const supabase = createClient(SUPABASE_URL, SERVICE_ROLE_KEY, {
   auth: { persistSession: false },
 });
 
-const BUCKET = "videos";
+const BUCKET = "Media";
 const VIDEO_PATH = join(__dirname, "../public/22.MOV");
 
 async function main() {

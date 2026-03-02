@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-export const VIDEO_BUCKET = "videos";
+export const VIDEO_BUCKET = "Media";
 
 // Lazy singleton — only instantiated when actually called at runtime,
 // not during Next.js build-time page-data collection.

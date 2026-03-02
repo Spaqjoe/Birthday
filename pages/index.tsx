@@ -18,9 +18,6 @@ export default function Home() {
             <span aria-hidden>❤️</span>
           </h1>
 
-          <p className="mt-5 max-w-xl text-sm text-muted-foreground sm:text-base">
-            Make a wish, then blow out the candles to celebrate in a magical way.
-          </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
             <Link href="/cake">
@@ -29,10 +26,6 @@ export default function Home() {
               </Button>
             </Link>
           </div>
-
-          <p className="mt-4 text-xs text-muted-foreground">
-            Tip: turn your sound on and be ready to blow toward your mic.
-          </p>
         </section>
 
         <footer className="pb-6 text-center text-[11px] text-muted-foreground">
