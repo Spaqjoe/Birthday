@@ -1,26 +1,323 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.656 0.216 350.8);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.968 0.018 349);
+  --secondary-foreground: oklch(0.44 0.14 349);
+  --muted: oklch(0.961 0.01 349);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.968 0.018 349);
+  --accent-foreground: oklch(0.44 0.14 349);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.656 0.216 350.8);
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: oklch(0.135 0.03 285);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.18 0.035 285);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.18 0.035 285);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.718 0.202 349.761);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.22 0.04 285);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.22 0.04 285);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.22 0.04 285);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.26 0.04 285);
+  --input: oklch(0.26 0.04 285);
+  --ring: oklch(0.718 0.202 349.761);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ── Cake Stage ────────────────────────────────────────────── */
+
+.cake-stage {
+  position: relative;
+  width: min(100%, 380px);
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.cake-plate-shadow {
+  position: absolute;
+  bottom: 6px;
+  width: 74%;
+  height: 22px;
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(51, 65, 85, 0.25) 0%,
+    rgba(51, 65, 85, 0.08) 55%,
+    rgba(51, 65, 85, 0) 100%
+  );
+  filter: blur(4px);
+}
+
+.cake-art-wrapper {
+  position: relative;
+  width: min(100%, 360px);
+}
+
+.cake-art {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 14px 20px rgba(15, 23, 42, 0.22));
+}
+
+.cake-base        { fill: rgba(255, 255, 255, 0.48); }
+.cake-body-shell  { stroke: rgba(255, 255, 255, 0.4); stroke-width: 1.5; }
+.cake-icing-drip  { fill: rgba(255, 242, 245, 0.95); }
+.cake-mid-band    { fill: rgba(255, 229, 238, 0.8); }
+.cake-bottom-band { fill: rgba(234, 91, 124, 0.92); }
+
+/* ── Candles ───────────────────────────────────────────────── */
+
+.cake-candle-layer { position: absolute; inset: 0; }
+
+.cake-candle {
+  position: absolute;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 62px;
+}
+
+.cake-candle-stick {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 8px;
+  height: 38px;
+  border-radius: 999px;
+  transform: translateX(-50%) rotate(var(--candle-tilt, 0deg));
+  transform-origin: bottom center;
+  background: linear-gradient(180deg, #ffd3df 0%, #ff9cb3 55%, #ee708e 100%);
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.4);
+}
+
+.cake-candle-wick {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  width: 2px;
+  height: 8px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #7b341e, #111827);
+  border-radius: 999px;
+}
+
+.cake-flame {
+  position: absolute;
+  left: 50%;
+  bottom: 42px;
+  width: 13px;
+  height: 22px;
+  transform: translateX(-50%);
+  transform-origin: center bottom;
+  border-radius: 60% 60% 45% 45%;
+}
+
+.cake-flame-glow {
+  position: absolute;
+  inset: -3px;
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 247, 190, 0.85) 0%,
+    rgba(255, 247, 190, 0) 72%
+  );
+}
+
+.cake-flame-core {
+  position: absolute;
+  inset: 1px 2px;
+  border-radius: 65% 65% 45% 45%;
+  background: linear-gradient(180deg, #fff7ba 0%, #ffd54f 45%, #ff9800 100%);
+}
+
+@keyframes cake-flame-flicker {
+  0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 0.9; }
+  50%  { transform: translateX(-50%) translateY(-1px) scale(1.05); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(1px) scale(0.96); opacity: 0.85; }
+}
+
+@keyframes cake-flame-extinguish {
+  0%   { transform: translateX(-50%) translateY(0) scale(1); opacity: 1; }
+  45%  { transform: translateX(-50%) translateY(-6px) scaleX(1.18) scaleY(0.65); opacity: 0.4; }
+  100% { transform: translateX(-50%) translateY(-11px) scaleX(0.78) scaleY(0.2); opacity: 0; }
+}
+
+.cake-flame-lit {
+  animation: cake-flame-flicker 0.75s ease-in-out infinite alternate;
+  animation-delay: var(--candle-delay, 0s);
+  opacity: 1;
+}
+
+.cake-flame-out {
+  animation: cake-flame-extinguish 0.6s ease-out forwards;
+}
+
+/* ── Smoke ─────────────────────────────────────────────────── */
+
+.cake-smoke {
+  position: absolute;
+  left: 50%;
+  bottom: 48px;
+  width: 16px;
+  height: 28px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.cake-smoke span {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(203, 213, 225, 0.72);
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.cake-smoke-show span { animation: cake-smoke-rise 1.3s ease-out forwards; }
+.cake-smoke-show span:nth-child(2) { animation-delay: 0.12s; }
+.cake-smoke-show span:nth-child(3) { animation-delay: 0.24s; }
+.cake-smoke-hidden span { animation: none; opacity: 0; }
+
+@keyframes cake-smoke-rise {
+  0%   { opacity: 0.34; transform: translateX(-50%) translateY(0) scale(0.55); }
+  80%  { opacity: 0.18; }
+  100% { opacity: 0; transform: translateX(calc(-50% + 6px)) translateY(-28px) scale(1.25); }
+}
+
+@media (max-width: 480px) {
+  .cake-stage       { width: min(100%, 320px); }
+  .cake-candle      { height: 56px; }
+  .cake-candle-stick { height: 34px; }
+  .cake-flame       { width: 11px; height: 19px; bottom: 39px; }
+  .cake-smoke       { bottom: 44px; }
+}
+
+/* ── Confetti ──────────────────────────────────────────────── */
+
+@keyframes confetti-fall {
+  0%   { transform: translate3d(0, -10vh, 0) rotateZ(0deg); opacity: 0; }
+  15%  { opacity: 1; }
+  100% { transform: translate3d(0, 120vh, 0) rotateZ(360deg); opacity: 0; }
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -10%;
+  width: 7px;
+  height: 14px;
+  border-radius: 2px;
+  opacity: 0;
+  animation-name: confetti-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* ── Countdown overlay ─────────────────────────────────────── */
+
+.countdown-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(2px);
+}
+
+.countdown-overlay-card {
+  text-align: center;
+  border-radius: 22px;
+  padding: 1.4rem 1.8rem;
+  background: linear-gradient(160deg, rgba(255, 246, 248, 0.97), rgba(255, 232, 242, 0.97));
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.35);
+}
+
+.countdown-number {
+  line-height: 1;
+  font-weight: 800;
+  font-size: clamp(3.8rem, 18vw, 8rem);
+  color: #e11d74;
+  text-shadow: 0 8px 20px rgba(225, 29, 116, 0.25);
+}
+
+.countdown-subtitle {
+  margin-top: 0.65rem;
+  font-size: 0.88rem;
+  color: #334155;
+}
+
+/* ── Wish page hearts ──────────────────────────────────────── */
+
+@keyframes wish-heart-float {
+  0%   { transform: translateY(0) scale(1) rotate(-8deg); opacity: 0; }
+  8%   { opacity: 0.65; }
+  92%  { opacity: 0.3; }
+  100% { transform: translateY(-110vh) scale(0.55) rotate(14deg); opacity: 0; }
+}
+
+.wish-heart {
+  position: absolute;
+  bottom: -8%;
+  animation: wish-heart-float var(--h-dur, 10s) ease-in var(--h-delay, 0s) infinite;
+  font-size: var(--h-size, 1.4rem);
+  pointer-events: none;
+  user-select: none;
 }

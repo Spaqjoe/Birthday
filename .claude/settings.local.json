@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm add clsx tailwind-merge class-variance-authority @radix-ui/react-slot lucide-react)",
+      "Bash(pnpm dlx shadcn@latest add button card badge separator --overwrite --yes)",
+      "Bash(pnpm build)",
+      "Bash(NODE_OPTIONS='--stack-trace-limit=50' pnpm build)",
+      "Bash(NODE_OPTIONS='--stack-trace-limit=50' npx next build)",
+      "Bash(pnpm tsc --noEmit)",
+      "Bash(pnpm next build)",
+      "Bash(echo \"Exit: $?\")",
+      "Bash(node -e \":*)",
+      "Bash(pnpm next build --no-lint)",
+      "Bash(NODE_OPTIONS='' pnpm next build)",
+      "Bash(node --no-warnings -e \":*)",
+      "Bash(pnpm ls @tailwindcss/postcss tailwindcss)",
+      "Bash(git stash)",
+      "Bash(git stash pop)",
+      "Bash(timeout 15 pnpm dev)",
+      "Bash(pnpm next dev --help)"
+    ]
+  }
+}
