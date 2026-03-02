@@ -17,7 +17,23 @@
       "Bash(git stash)",
       "Bash(git stash pop)",
       "Bash(timeout 15 pnpm dev)",
-      "Bash(pnpm next dev --help)"
+      "Bash(pnpm next dev --help)",
+      "Bash(git -C /Users/jessejoe/Desktop/birthday/birthday log --oneline)",
+      "Bash(git -C /Users/jessejoe/Desktop/birthday/birthday remote -v)",
+      "Bash(git -C /Users/jessejoe/Desktop/birthday/birthday log --oneline --all --diff-filter=A -- public/22.MOV)",
+      "Bash(git -C /Users/jessejoe/Desktop/birthday/birthday rm --cached public/22.MOV)",
+      "Bash(git -C /Users/jessejoe/Desktop/birthday/birthday add .gitignore)",
+      "Bash(git -C /Users/jessejoe/Desktop/birthday/birthday commit --amend --no-edit)",
+      "Bash(npx wrangler --version)",
+      "Bash(pnpm wrangler whoami)",
+      "Bash(pnpm wrangler r2 bucket create birthday-media)",
+      "Bash(node --stack-trace-limit=50 -e \":*)",
+      "Bash(node -e \"const p = require\\(''/Users/jessejoe/Desktop/birthday/birthday/node_modules/next/dist/compiled/postcss/index.js''\\); console.log\\(''postcss version:'', p.version || ''unknown''\\)\")",
+      "Bash(node -e \"const p = require\\(''/Users/jessejoe/Desktop/birthday/birthday/node_modules/postcss''\\); console.log\\(p.version\\)\")",
+      "Bash(node -e \"console.log\\(require\\(''/Users/jessejoe/Desktop/birthday/birthday/node_modules/postcss/package.json''\\).version\\)\")",
+      "Bash(xargs -I{} node -e \"const p = require\\(''{}''\\); console.log\\(p.name, p.version\\)\")",
+      "Bash(node -e \"const p=require\\(''./node_modules/next/package.json''\\); console.log\\(''installed next:'', p.version\\)\")",
+      "Bash(pnpm add @supabase/supabase-js)"
     ]
   }
 }

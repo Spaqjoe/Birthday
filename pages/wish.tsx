@@ -9,6 +9,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { getVideoUrl } from "@/lib/supabase";
+
+const VIDEO_SRC = getVideoUrl("22.MOV");
 
 const HEARTS = [
   { left: "8%",  size: "1.1rem", dur: "11s", delay: "0s"   },
@@ -90,7 +93,7 @@ export default function WishPage() {
               controls
               playsInline
               preload="metadata"
-              src="/22.MOV"
+              src={VIDEO_SRC}
             >
               Your browser does not support this video.
             </video>

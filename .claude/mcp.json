@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "shadcn": {
+      "command": "npx",
+      "args": [
+        "shadcn@latest",
+        "mcp"
+      ]
+    },
+    "supabase": {
+      "url": "https://mcp.supabase.com/mcp?project_ref=arnemejrgebsiywnkujj",
+      "headers": {
+        "Authorization": "Bearer sbp_a70f378a228a9e45fbce288cbdb5817db02add7a"
+      }
+    }
+  }
+  
+}
