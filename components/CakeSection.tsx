@@ -90,7 +90,7 @@ export function CakeSection() {
             <CardHeader className="pb-2">
               <CardTitle className="text-xl">Blow out the candles</CardTitle>
               <CardDescription>
-                Think of your wish for Pelumi, then let your mic listen.
+                Make a wish, then blow out the candles to celebrate in a magical way.
               </CardDescription>
             </CardHeader>
 

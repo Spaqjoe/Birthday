@@ -54,9 +54,6 @@ export function MicrophoneControl({ onBlow, disabled }: MicrophoneControlProps) 
         )}
       </Button>
 
-      <p className="text-xs text-muted-foreground">
-        We only listen while this page is open and you&apos;ve turned the microphone on.
-      </p>
 
       {error && (
         <p className="text-xs text-destructive">{error}</p>

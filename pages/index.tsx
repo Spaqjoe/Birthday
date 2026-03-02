@@ -1,15 +1,8 @@
-import { useRef } from "react";
-import { CakeSection } from "@/components/CakeSection";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
-  const cakeSectionRef = useRef<HTMLDivElement | null>(null);
-
-  const scrollToCake = () => {
-    cakeSectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50 text-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800 dark:text-slate-50">
       <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-24 px-4 py-10 sm:px-6 lg:px-8">
@@ -26,25 +19,21 @@ export default function Home() {
           </h1>
 
           <p className="mt-5 max-w-xl text-sm text-muted-foreground sm:text-base">
-            Make a wish, then scroll down and blow out the candles to celebrate in
-            a magical way.
+            Make a wish, then blow out the candles to celebrate in a magical way.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button size="lg" onClick={scrollToCake} className="shadow-lg shadow-primary/30">
-              Take me to the cake 🎂
-            </Button>
+            <Link href="/cake">
+              <Button size="lg" className="shadow-lg shadow-primary/30">
+                Take me to the cake 🎂
+              </Button>
+            </Link>
           </div>
 
           <p className="mt-4 text-xs text-muted-foreground">
             Tip: turn your sound on and be ready to blow toward your mic.
           </p>
         </section>
-
-        {/* Interactive cake */}
-        <div ref={cakeSectionRef}>
-          <CakeSection />
-        </div>
 
         <footer className="pb-6 text-center text-[11px] text-muted-foreground">
           Made with love just for Pelumi.
